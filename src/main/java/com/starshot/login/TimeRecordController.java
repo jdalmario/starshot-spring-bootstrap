@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TimeRecordController {
 
@@ -15,8 +17,9 @@ public class TimeRecordController {
     TimeRecordService timeRecordService;
 
     @RequestMapping(value = "/timeRecord")
-    public String create(Model model) {
+    public String create(Model model, HttpSession httpSession) {
         model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
+        model.addAttribute("username", httpSession.getAttribute("username"));
         return "main";
     }
 
@@ -33,6 +36,14 @@ public class TimeRecordController {
         timeRecordService.deleteRecord(id);
         model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
         model.addAttribute("message", "Time Record Deleted!");
+        return "main";
+    }
+
+    @RequestMapping(value = "/updateTimeRecord", method = RequestMethod.POST)
+    public String updateTimeRecord(ModelMap model, @ModelAttribute TimeRecord timeRecord) {
+        timeRecordService.updateRecord(timeRecord);
+        model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
+        model.addAttribute("message", "Time Record Updated!");
         return "main";
     }
 }
