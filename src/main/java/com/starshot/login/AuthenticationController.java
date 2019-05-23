@@ -1,6 +1,6 @@
-package com.something.login;
+package com.starshot.login;
 
-import com.something.service.AuthenticationService;
+import com.starshot.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

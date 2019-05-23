@@ -1,7 +1,7 @@
-package com.something.login;
+package com.starshot.login;
 
-import com.something.domain.TimeRecord;
-import com.something.service.TimeRecordService;
+import com.starshot.domain.TimeRecord;
+import com.starshot.service.TimeRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

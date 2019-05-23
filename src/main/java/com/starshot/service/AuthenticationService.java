@@ -1,4 +1,4 @@
-package com.something.service;
+package com.starshot.service;
 
 import org.springframework.stereotype.Service;
 
