@@ -1,4 +1,4 @@
-package com.something.domain;
+package com.starshot.domain;
 
 public class User {
     private String username;

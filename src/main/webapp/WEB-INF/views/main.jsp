@@ -15,6 +15,9 @@
         </div>
     </c:if>
 
+    <a href="logout"><button class="btn btn-info">logout</button> </a>
+    ${username}
+
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">

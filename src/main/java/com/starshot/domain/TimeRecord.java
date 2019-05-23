@@ -1,4 +1,4 @@
-package com.something.domain;
+package com.starshot.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -74,11 +74,7 @@ public class TimeRecord {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TimeRecord that = (TimeRecord) o;
-        return id == that.id &&
-                Objects.equals(employeeName, that.employeeName) &&
-                Objects.equals(timeIn, that.timeIn) &&
-                Objects.equals(timeOut, that.timeOut) &&
-                Objects.equals(active, that.active);
+        return id == that.id;
     }
 
     @Override

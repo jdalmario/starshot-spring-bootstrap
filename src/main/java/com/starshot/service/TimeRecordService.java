@@ -1,6 +1,6 @@
-package com.something.service;
+package com.starshot.service;
 
-import com.something.domain.TimeRecord;
+import com.starshot.domain.TimeRecord;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,5 +37,10 @@ public class TimeRecordService {
                 timeRecordIterator.remove();
             }
         }
+    }
+
+    public void updateRecord(TimeRecord timeRecord) {
+        timeRecordList.remove(timeRecord);
+        timeRecordList.add(timeRecord);
     }
 }
