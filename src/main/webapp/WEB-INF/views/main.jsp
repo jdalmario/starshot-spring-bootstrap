@@ -25,6 +25,23 @@
     <a href="logout"><button class="btn btn-info">logout</button> </a>
     ${username}
 
+    <form action="filterTimeRecord" method="post">
+        <div class="form-group">
+            <label>Employee Name:</label>
+            <input class="form-control" name="employeeName">
+        </div>
+
+        <div class="form-group">
+            <label>Is Active:</label>
+            <select name="active" class="form-control" id="sel1">
+                <option value=""></option>
+                <option value="true">yes</option>
+                <option value="false">no</option>
+            </select>
+        </div>
+        <input type="submit" class="btn btn-success" value="Search">
+    </form>
+
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
@@ -203,9 +220,6 @@
 </div>
 </body>
 <script>
-    console.log($);
-    console.log(jQuery);
-
     $("div .date").datetimepicker();
 
     $("#editTimeRecordModal").on('show.bs.modal', function (e) {
