@@ -24,9 +24,11 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession();
-        // logger.info("http request " + httpRequest.getRequestURI());
+         logger.info("http request " + httpRequest.getRequestURI());
 
-        if (httpRequest.getRequestURI().endsWith("login") || httpRequest.getRequestURI().indexOf("assets") > 0) {
+         // Exclude webjars login and assets mapping
+         if (httpRequest.getRequestURI().endsWith("login") || httpRequest.getRequestURI().indexOf("assets") > 0
+                || httpRequest.getRequestURI().indexOf("webjars") > 0) {
             chain.doFilter(request, response);
         } else if (session.getAttribute("username") == null) {
             httpResponse.sendRedirect("login");

@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>Time Record</display-name>
+    <display-name>TimeRecord</display-name>
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -32,6 +32,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

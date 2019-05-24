@@ -17,7 +17,6 @@ public class TimeRecordService {
 
     private static final Logger logger = LoggerFactory.getLogger(TimeRecordService.class);
 
-
     private static List<TimeRecord> timeRecordList = new ArrayList<>();
     private static int id = 6;
 
@@ -28,7 +27,6 @@ public class TimeRecordService {
         timeRecordList.add(new TimeRecord(4, "employee name 4", new Date(), new Date(), false));
         timeRecordList.add(new TimeRecord(5, "employee name 5", new Date(), new Date(), false));
         timeRecordList.add(new TimeRecord(6, "employee name 6", new Date(), new Date(), false));
-
     }
 
     public void createRecord(TimeRecord timerecord) {
