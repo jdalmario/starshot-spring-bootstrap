@@ -49,7 +49,7 @@ public class TimeRecordController {
     @RequestMapping(value = "/filterTimeRecord", method = RequestMethod.POST)
     public String filterTimeRecord(Model model, @ModelAttribute TimeRecord timeRecord) {
         model.addAttribute("timeRecords", timeRecordService.filterRecord(timeRecord));
-        model.addAttribute("message", "Time Record Updated!");
+        model.addAttribute("message", "Time Record Filtered!");
         return "main";
     }
 }
