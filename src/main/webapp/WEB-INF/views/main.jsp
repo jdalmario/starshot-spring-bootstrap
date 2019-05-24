@@ -138,8 +138,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Active</label>
-                            <input name="active" type="checkbox" class="form-control">
+                            <label>
+                                <input name="active" type="checkbox">
+                                Active Status
+                            </label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -187,8 +189,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Active</label>
-                            <input name="active" type="checkbox" class="form-control">
+                            <label>
+                                <input name="active" type="checkbox">
+                                Active Status
+                            </label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -233,7 +237,11 @@
         t.forEach(function (item) {
             var itemInput = $("form[action='updateTimeRecord']").find("input[name='" + item.name + "']");
             if (item.name == 'active') {
-                itemInput.prop('checked', item.value);
+                if(item.value=="true") {
+                    itemInput.prop('checked', item.value);
+                } else {
+                    itemInput.removeAttr('checked');
+                }
             } else {
                 itemInput.val(item.value);
             }
