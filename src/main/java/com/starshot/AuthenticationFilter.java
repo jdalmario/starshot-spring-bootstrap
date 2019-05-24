@@ -24,8 +24,9 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession();
+        // logger.info("http request " + httpRequest.getRequestURI());
 
-        if (httpRequest.getRequestURI().endsWith("login")) {
+        if (httpRequest.getRequestURI().endsWith("login") || httpRequest.getRequestURI().indexOf("assets") > 0) {
             chain.doFilter(request, response);
         } else if (session.getAttribute("username") == null) {
             httpResponse.sendRedirect("login");

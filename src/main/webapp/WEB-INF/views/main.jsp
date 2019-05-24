@@ -1,10 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Time Record Starshot</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.4.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='assets/css/bootstrap-datetimepicker.min.css'>
+    <link rel='stylesheet' href='assets/css/main.css'>
 
     <script type='text/javascript' src='webjars/jquery/1.11.1/jquery.min.js'></script>
     <script type='text/javascript' src='assets/js/moment.min.js'></script>
@@ -22,7 +23,9 @@
         </div>
     </c:if>
 
-    <a href="logout"><button class="btn btn-info">logout</button> </a>
+    <a href="logout">
+        <button class="btn btn-info">logout</button>
+    </a>
     ${username}
 
     <form action="filterTimeRecord" method="post">
@@ -70,13 +73,15 @@
                 <tr data-id=${timeRecord.id}>
                     <input name="id" type="hidden" value="${timeRecord.id}">
                     <input name="employeeName" type="hidden" value="${timeRecord.employeeName}">
-                    <input name="timeIn" type="hidden" value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeIn}" />"/>
-                    <input name="timeOut" type="hidden" value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeOut}" />"/>
+                    <input name="timeIn" type="hidden"
+                           value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeIn}" />"/>
+                    <input name="timeOut" type="hidden"
+                           value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeOut}" />"/>
                     <input name="active" type="hidden" value="${timeRecord.active}">
                     <td>${timeRecord.id}</td>
                     <td>${timeRecord.employeeName}</td>
-                    <td><fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeIn}" /></td>
-                    <td><fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeOut}" /></td>
+                    <td><fmt:formatDate pattern="MM/dd/yyyy hh:mm a" value="${timeRecord.timeIn}"/></td>
+                    <td><fmt:formatDate pattern="MM/dd/yyyy hh:mm a" value="${timeRecord.timeOut}"/></td>
                     <td>${timeRecord.active ? 'yes': 'no'}</td>
                     <td>
                         <a class="edit" data-toggle="tooltip" data-original-title="Edit">
