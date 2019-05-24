@@ -1,4 +1,4 @@
-package com.starshot.login;
+package com.starshot.controller;
 
 import com.starshot.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;

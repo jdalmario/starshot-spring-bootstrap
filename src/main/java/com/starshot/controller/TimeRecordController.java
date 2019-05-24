@@ -1,11 +1,10 @@
-package com.starshot.login;
+package com.starshot.controller;
 
 import com.starshot.domain.TimeRecord;
 import com.starshot.service.TimeRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -24,7 +23,7 @@ public class TimeRecordController {
     }
 
     @RequestMapping(value = "/addTimeRecord", method = RequestMethod.POST)
-    public String addTimeRecord(ModelMap model, @ModelAttribute TimeRecord timeRecord) {
+    public String addTimeRecord(Model model, @ModelAttribute TimeRecord timeRecord) {
         timeRecordService.createRecord(timeRecord);
         model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
         model.addAttribute("message", "Time Record Created!");
@@ -32,7 +31,7 @@ public class TimeRecordController {
     }
 
     @RequestMapping(value = "/deleteTimeRecord", method = RequestMethod.POST)
-    public String deleteTimeRecord(ModelMap model, @RequestParam("id") int id) {
+    public String deleteTimeRecord(Model model, @RequestParam("id") int id) {
         timeRecordService.deleteRecord(id);
         model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
         model.addAttribute("message", "Time Record Deleted!");
@@ -40,7 +39,7 @@ public class TimeRecordController {
     }
 
     @RequestMapping(value = "/updateTimeRecord", method = RequestMethod.POST)
-    public String updateTimeRecord(ModelMap model, @ModelAttribute TimeRecord timeRecord) {
+    public String updateTimeRecord(Model model, @ModelAttribute TimeRecord timeRecord) {
         timeRecordService.updateRecord(timeRecord);
         model.addAttribute("timeRecords", timeRecordService.getTimeRecordList());
         model.addAttribute("message", "Time Record Updated!");
