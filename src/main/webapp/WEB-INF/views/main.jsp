@@ -1,10 +1,17 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Time Record Starshot</title>
     <link rel='stylesheet' href='webjars/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='assets/css/bootstrap-datetimepicker.min.css'>
+
     <script type='text/javascript' src='webjars/jquery/1.11.1/jquery.min.js'></script>
+    <script type='text/javascript' src='assets/js/moment.min.js'></script>
     <script type='text/javascript' src='webjars/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+
+    <script type='text/javascript' src='assets/js/bootstrap-datetimepicker.min.js'></script>
+
 </head>
 <body>
 <div class="container">
@@ -46,14 +53,13 @@
                 <tr data-id=${timeRecord.id}>
                     <input name="id" type="hidden" value="${timeRecord.id}">
                     <input name="employeeName" type="hidden" value="${timeRecord.employeeName}">
-                    <input name="timeIn" type="hidden" value="${timeRecord.timeIn}">
-                    <input name="timeOut" type="hidden" value="${timeRecord.timeOut}">
+                    <input name="timeIn" type="hidden" value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeIn}" />"/>
+                    <input name="timeOut" type="hidden" value="<fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeOut}" />"/>
                     <input name="active" type="hidden" value="${timeRecord.active}">
-
                     <td>${timeRecord.id}</td>
                     <td>${timeRecord.employeeName}</td>
-                    <td>${timeRecord.timeIn}</td>
-                    <td>${timeRecord.timeOut}</td>
+                    <td><fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeIn}" /></td>
+                    <td><fmt:formatDate pattern = "MM/dd/yyyy hh:mm a" value = "${timeRecord.timeOut}" /></td>
                     <td>${timeRecord.active ? 'yes': 'no'}</td>
                     <td>
                         <a class="edit" data-toggle="tooltip" data-original-title="Edit">
@@ -91,11 +97,23 @@
                         </div>
                         <div class="form-group">
                             <label>Time In</label>
-                            <input name="timeIn" type="date" class="form-control">
+                            <div class='input-group date'>
+                                <input name="timeIn" type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                            </div>
                         </div>
+
                         <div class="form-group">
                             <label>Time out</label>
-                            <input name="timeOut" type="date" class="form-control">
+                            <label>Time In</label>
+                            <div class='input-group date'>
+                                <input name="timeOut" type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Active</label>
@@ -128,11 +146,23 @@
                         </div>
                         <div class="form-group">
                             <label>Time In</label>
-                            <input name="timeIn" type="date" class="form-control">
+                            <div class='input-group date'>
+                                <input name="timeIn" type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                            </div>
                         </div>
+
                         <div class="form-group">
                             <label>Time out</label>
-                            <input name="timeOut" type="date" class="form-control">
+                            <label>Time In</label>
+                            <div class='input-group date'>
+                                <input name="timeOut" type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Active</label>
@@ -175,6 +205,8 @@
 <script>
     console.log($);
     console.log(jQuery);
+
+    $("div .date").datetimepicker();
 
     $("#editTimeRecordModal").on('show.bs.modal', function (e) {
         var timeRecordId = $(e.relatedTarget).data('id');

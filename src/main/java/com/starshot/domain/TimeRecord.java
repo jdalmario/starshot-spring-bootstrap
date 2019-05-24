@@ -10,9 +10,9 @@ public class TimeRecord {
     private int id;
     private String employeeName;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "MM/dd/yyyy hh:mm a")
     private Date timeIn;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "MM/dd/yyyy hh:mm a")
     private Date timeOut;
     private Boolean active;
 

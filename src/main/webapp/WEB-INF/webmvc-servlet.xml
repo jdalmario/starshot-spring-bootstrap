@@ -21,4 +21,7 @@
 
     <mvc:resources mapping="/webjars/**" location="/webjars/"/>
 
+    <mvc:resources mapping="/assets/**" location="/resources/"/>
+
+
 </beans>
