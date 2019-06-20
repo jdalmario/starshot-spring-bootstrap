@@ -1,4 +1,4 @@
-# starshot-spring-bootstrap
+## Starshot-spring-bootstrap
 
 Spring MVC project using maven as a build tool
 
